@@ -1,7 +1,9 @@
+import Logo from "./Logo";
+
 const Header = () => {
   return (
     <header>
-      <h1>Welcome to the Little Lemon Restaurant!</h1>
+      <Logo />
     </header>
   );
 };
