@@ -7,7 +7,7 @@ import Specials from "./Specials";
 
 const HomePage = () => {
   return (
-    <>
+    <div className="layout-container">
       <Nav />
       <main className="col-span-12">
         <CallToAction />
@@ -16,7 +16,7 @@ const HomePage = () => {
         <Chicago />
       </main>
       <Footer />
-    </>
+    </div>
   );
 };
 

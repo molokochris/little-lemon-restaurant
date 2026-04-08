@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const CallToAction = () => {
   return (
     <section id="hero">
@@ -9,7 +11,7 @@ const CallToAction = () => {
           recipes served with a modern twist.{" "}
         </p>
         <button className="button" role="button" aria-label="Reserve a Table">
-          Reserve a Table
+          <Link to="/booking">Reserve a Table</Link>
         </button>
       </article>
       <img

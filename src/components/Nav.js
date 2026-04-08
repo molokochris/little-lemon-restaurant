@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Logo from "./Logo";
 
 const Nav = () => {
@@ -6,24 +7,24 @@ const Nav = () => {
       <Logo />
       <nav>
         <ul>
-          <a href="/">
+          <Link to="/">
             <li>Home</li>
-          </a>
-          <a href="/about">
+          </Link>
+          <Link to="/about">
             <li>About</li>
-          </a>
-          <a href="/menu">
+          </Link>
+          <Link to="/menu">
             <li>Menu</li>
-          </a>
-          <a href="/reservations">
+          </Link>
+          <Link to="/reservations">
             <li>Reservations</li>
-          </a>
-          <a href="/order-online">
+          </Link>
+          <Link to="/order-online">
             <li>Order Online</li>
-          </a>
-          <a href="/login">
+          </Link>
+          <Link to="/login">
             <li>Logins</li>
-          </a>
+          </Link>
         </ul>
       </nav>
     </header>

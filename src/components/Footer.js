@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Logo from "./Logo";
 import Nav from "./Nav";
 
@@ -10,22 +11,22 @@ const Footer = () => {
 
         <ul className="footer-links">
           <li>
-            <a href="index.html">Home</a>
+            <Link to="/">Home</Link>
           </li>
           <li>
-            <a href="about.html">About</a>
+            <Link to="/about">About</Link>
           </li>
           <li>
-            <a href="menu.html">Menu</a>
+            <Link to="/menu">Menu</Link>
           </li>
           <li>
-            <a href="reservations.html">Reservations</a>
+            <Link to="/reservations">Reservations</Link>
           </li>
           <li>
-            <a href="order.html">Order Online</a>
+            <Link to="/order-online">Order Online</Link>
           </li>
           <li>
-            <a href="login.html">Login</a>
+            <Link to="/login">Login</Link>
           </li>
         </ul>
       </div>
@@ -39,13 +40,13 @@ const Footer = () => {
         <h2>Follow Us</h2>
         <ul className="footer-links">
           <li>
-            <a href="https://www.facebook.com/littlelemon">Facebook</a>
+            <Link to="https://www.facebook.com/littlelemon">Facebook</Link>
           </li>
           <li>
-            <a href="https://www.instagram.com/littlelemon">Instagram</a>
+            <Link to="https://www.instagram.com/littlelemon">Instagram</Link>
           </li>
           <li>
-            <a href="https://www.twitter.com/littlelemon">Twitter</a>
+            <Link to="https://www.twitter.com/littlelemon">Twitter</Link>
           </li>
         </ul>
       </div>
