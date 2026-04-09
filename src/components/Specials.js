@@ -1,8 +1,12 @@
+import greekSalad from "../images/greek salad.jpg";
+import bruschetta from "../images/bruschetta.svg";
+import lemonDessert from "../images/lemon dessert.jpg";
+
 const Specials = () => {
   const specialItemsImages = [
-    require("../images/greek salad.jpg"),
-    require("../images/bruschetta.svg"),
-    require("../images/lemon dessert.jpg"),
+    greekSalad,
+    bruschetta,
+    lemonDessert,
   ];
   return (
     <section id="specials">
