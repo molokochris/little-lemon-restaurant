@@ -1,16 +1,30 @@
 import Footer from "./Footer";
 import Nav from "./Nav";
 import BookingForm from "./BookingForm";
-import { useState } from "react";
+import { useReducer, useState } from "react";
 
 const BookingPage = () => {
-  const [availableTimes, setAvailableTimes] = useState([
-    "17:00",
-    "18:00",
-    "19:00",
-    "20:00",
-    "21:00",
-  ]);
+  const initializeTimes = () => {
+    return {
+      date: new Date().toISOString().split("T")[0],
+      times: ["17:00", "18:00", "19:00", "20:00", "21:00"],
+    };
+  };
+
+  const updateTimes = (state, action) => {
+    switch (action.type) {
+      case "UPDATE_TIMES":
+        return {
+          ...state,
+          date: action.payload,
+          times: ["17:00", "18:00", "19:00", "20:00", "21:00"],
+        };
+      default:
+        return state;
+    }
+  };
+
+  const [state, dispatch] = useReducer(updateTimes, {}, initializeTimes);
 
   return (
     <>
@@ -26,8 +40,10 @@ const BookingPage = () => {
               </p>
 
               <BookingForm
-                availableTimes={availableTimes}
-                setAvailableTimes={setAvailableTimes}
+                availableTimes={state.times}
+                setAvailableTimes={(times) =>
+                  dispatch({ type: "UPDATE_TIMES", payload: times })
+                }
               />
             </div>
           </section>

@@ -1,126 +1,88 @@
 import { useState } from "react";
 
 const BookingForm = (props) => {
-  const [fullName, setFullName] = useState("");
-  const [email, setEmail] = useState("");
   const [date, setDate] = useState("");
-  const [availableTime, setAvailableTime] = useState("");
+  const [time, setTime] = useState("");
   const [guests, setGuests] = useState(1);
   const [occasion, setOccasion] = useState("Birthday");
-
-  let timeOptions = props.availableTimes.map((time) => (
-    <option key={time} value={time}>
-      {time}
-    </option>
-  ));
+  const { availableTimes } = props;
 
   const handleSubmit = (e) => {
     e.preventDefault();
     // Here you would typically send the reservation data to a server
     alert(
-      `Reservation submitted:\nName: ${fullName}\nEmail: ${email}\nDate: ${date}\nTime: ${availableTime}\nGuests: ${guests}\nOccasion: ${occasion}`,
+      `Reservation submitted:\nDate: ${date}\nTime: ${time}\nGuests: ${guests}\nOccasion: ${occasion}`,
     );
   };
 
   return (
-    <form id="reservation-form" className="form-grid">
+    <form
+      className="form-grid"
+      // style={{ maxWidth: "200px" }}
+      onSubmit={handleSubmit}
+    >
       <div className="form-group">
-        <label htmlFor="name">Name</label>
-        <input
-          type="text"
-          id="name"
-          name="name"
-          placeholder="Your full name"
-          value={fullName}
-          onChange={(e) => setFullName(e.target.value)}
-          required
-        />
-      </div>
-
-      <div className="form-group">
-        <label htmlFor="email">Email</label>
-        <input
-          type="email"
-          id="email"
-          name="email"
-          placeholder="you@example.com"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
-      </div>
-
-      <div className="form-group">
-        <label htmlFor="date">Date</label>
+        <label htmlFor="res-date">Choose date</label>
         <input
           type="date"
-          id="date"
-          name="date"
+          id="res-date"
           value={date}
           onChange={(e) => setDate(e.target.value)}
           required
         />
-        {/* <select
-          id="Time"
-          name="Time"
-          value={availableTime}
-          onChange={(e) => setAvailableTime(e.target.value)}
-          required
-        >
-          {timeOptions}
-        </select> */}
       </div>
 
       <div className="form-group">
-        <label htmlFor="time">Time</label>
+        <label htmlFor="res-time">Choose available time</label>
         <select
-          id="time"
-          name="time"
-          type="time"
-          value={availableTime}
-          onChange={(e) => setAvailableTime(e.target.value)}
+          id="res-time"
+          value={time}
+          onChange={(e) => setTime(e.target.value)}
           required
         >
-          {timeOptions}
+          <option value="">Select time</option>
+          {Array.isArray(availableTimes) &&
+            availableTimes.map((timeOption) => (
+              <option key={timeOption} value={timeOption}>
+                {timeOption}
+              </option>
+            ))}
         </select>
       </div>
 
       <div className="form-group form-group--full">
-        <label htmlFor="guests">Number of Guests</label>
+        <label htmlFor="guests">Number of guests</label>
         <input
           type="number"
-          id="guests"
-          name="guests"
+          placeholder="1"
           min="1"
-          max="20"
-          placeholder="1–20"
+          max="10"
+          id="guests"
           value={guests}
           onChange={(e) => setGuests(e.target.value)}
           required
         />
       </div>
+
       <div className="form-group form-group--full">
         <label htmlFor="occasion">Occasion</label>
         <select
           id="occasion"
-          name="occasion"
           value={occasion}
           onChange={(e) => setOccasion(e.target.value)}
           required
         >
-          <option value="Birthday">Birthday</option>
-          <option value="Anniversary">Anniversary</option>
+          <option>Birthday</option>
+          <option>Anniversary</option>
         </select>
       </div>
 
-      <div className="form-group form-group--full">
-        <button
+      <div className="form-group form-group--full ">
+        <input
           type="submit"
-          className="button button--submit"
-          onClick={handleSubmit}
-        >
-          Submit Reservation
-        </button>
+          value="Make Your reservation"
+          className="button--submit"
+        />
       </div>
     </form>
   );
