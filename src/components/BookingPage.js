@@ -1,30 +1,54 @@
 import Footer from "./Footer";
 import Nav from "./Nav";
 import BookingForm from "./BookingForm";
-import { useReducer, useState } from "react";
+import { useEffect, useReducer, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const BookingPage = () => {
-  const initializeTimes = () => {
-    return {
-      date: new Date().toISOString().split("T")[0],
-      times: ["17:00", "18:00", "19:00", "20:00", "21:00"],
-    };
+  const navigate = useNavigate();
+
+  const initializeTimes = (date) => {
+    // eslint-disable-next-line no-undef
+    const availableTimes = fetchAPI(date);
+    console.log("available times:", availableTimes);
+    return availableTimes;
   };
 
   const updateTimes = (state, action) => {
     switch (action.type) {
-      case "UPDATE_TIMES":
+      case "UPDATE_DATE":
+        const newTimes = fetchAPI(action.payload); // eslint-disable-line no-undef
+        console.log("Date changed:", action.payload, "Times:", newTimes);
+        return { ...state, date: action.payload, times: newTimes };
+      case "UPDATE_SELECTED_TIME":
         return {
           ...state,
-          date: action.payload,
-          times: ["17:00", "18:00", "19:00", "20:00", "21:00"],
+          selectedTime: action.payload,
         };
       default:
         return state;
     }
   };
 
-  const [state, dispatch] = useReducer(updateTimes, {}, initializeTimes);
+  const [state, dispatch] = useReducer(
+    updateTimes,
+    initializeTimes(new Date()),
+  );
+
+  const submitForm = (formData) => {
+    console.log("formdata from bookingpage:", formData);
+    try {
+      // eslint-disable-next-line no-undef
+      const result = submitAPI(formData);
+      if (result) {
+        navigate("/confirmed-booking", {
+          state: { reservationDetails: formData },
+        });
+      }
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
 
   return (
     <>
@@ -40,10 +64,10 @@ const BookingPage = () => {
               </p>
 
               <BookingForm
-                availableTimes={state.times}
-                setAvailableTimes={(times) =>
-                  dispatch({ type: "UPDATE_TIMES", payload: times })
-                }
+                times={state.times}
+                selectedTime={state.selectedTime}
+                dispatch={dispatch}
+                submitForm={submitForm}
               />
             </div>
           </section>

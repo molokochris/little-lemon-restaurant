@@ -1,18 +1,21 @@
 import { useState } from "react";
 
-const BookingForm = (props) => {
+const BookingForm = ({ times, selectedTime, dispatch, submitForm }) => {
   const [date, setDate] = useState("");
-  const [time, setTime] = useState("");
+  // const [time, setTime] = useState("");
   const [guests, setGuests] = useState(1);
   const [occasion, setOccasion] = useState("Birthday");
-  const { availableTimes } = props;
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Here you would typically send the reservation data to a server
-    alert(
-      `Reservation submitted:\nDate: ${date}\nTime: ${time}\nGuests: ${guests}\nOccasion: ${occasion}`,
-    );
+    const formData = {
+      date,
+      time: selectedTime,
+      guests,
+      occasion,
+    };
+    console.log("formdata:", formData);
+    submitForm(formData);
   };
 
   return (
@@ -27,7 +30,13 @@ const BookingForm = (props) => {
           type="date"
           id="res-date"
           value={date}
-          onChange={(e) => setDate(e.target.value)}
+          onChange={(e) => {
+            dispatch({
+              type: "UPDATE_DATE",
+              payload: new Date(e.target.value),
+            });
+            setDate(e.target.value);
+          }}
           required
         />
       </div>
@@ -36,13 +45,20 @@ const BookingForm = (props) => {
         <label htmlFor="res-time">Choose available time</label>
         <select
           id="res-time"
-          value={time}
-          onChange={(e) => setTime(e.target.value)}
+          value={selectedTime || ""}
+          onChange={(e) =>
+            dispatch({
+              type: "UPDATE_SELECTED_TIME",
+              payload: e.target.value,
+            })
+          }
           required
         >
-          <option value="">Select time</option>
-          {Array.isArray(availableTimes) &&
-            availableTimes.map((timeOption) => (
+          <option value="" disabled={date !== ""}>
+            Select time
+          </option>
+          {Array.isArray(times) &&
+            times.map((timeOption) => (
               <option key={timeOption} value={timeOption}>
                 {timeOption}
               </option>
@@ -82,6 +98,7 @@ const BookingForm = (props) => {
           type="submit"
           value="Make Your reservation"
           className="button--submit"
+          onClick={handleSubmit}
         />
       </div>
     </form>

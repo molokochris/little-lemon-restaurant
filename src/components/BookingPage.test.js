@@ -1,21 +1,30 @@
 import { render } from "@testing-library/react";
 import BookingPage from "./BookingPage";
 
+// Mock the global fetchAPI function
+global.fetchAPI = jest.fn((date) => {
+  return ["17:00", "18:00", "19:00", "20:00", "21:00"];
+});
+
 // Extract the reducer functions for testing
-const initializeTimes = () => {
-  return {
-    date: new Date().toISOString().split("T")[0],
-    times: ["17:00", "18:00", "19:00", "20:00", "21:00"],
-  };
+const initializeTimes = (date) => {
+  const availableTimes = global.fetchAPI(date);
+  return availableTimes;
 };
 
 const updateTimes = (state, action) => {
   switch (action.type) {
-    case "UPDATE_TIMES":
+    case "UPDATE_DATE":
+      const newTimes = global.fetchAPI(action.payload);
       return {
         ...state,
         date: action.payload,
-        times: ["17:00", "18:00", "19:00", "20:00", "21:00"],
+        times: newTimes,
+      };
+    case "UPDATE_SELECTED_TIME":
+      return {
+        ...state,
+        selectedTime: action.payload,
       };
     default:
       return state;
@@ -24,33 +33,44 @@ const updateTimes = (state, action) => {
 
 describe("Reducer Functions", () => {
   describe("initializeTimes", () => {
-    test("returns an object with date and times properties", () => {
-      const result = initializeTimes();
-
-      expect(result).toHaveProperty("date");
-      expect(result).toHaveProperty("times");
+    beforeEach(() => {
+      jest.clearAllMocks();
     });
 
-    test("returns todays date in YYYY-MM-DD format", () => {
-      const result = initializeTimes();
-      const todayDate = new Date().toISOString().split("T")[0];
+    test("calls fetchAPI with the provided date", () => {
+      const testDate = new Date("2024-04-09");
+      initializeTimes(testDate);
 
-      expect(result.date).toBe(todayDate);
+      expect(global.fetchAPI).toHaveBeenCalledWith(testDate);
     });
 
-    test("returns correct initial times array", () => {
-      const result = initializeTimes();
+    test("returns the result of fetchAPI", () => {
+      const testDate = new Date("2024-04-09");
+      const result = initializeTimes(testDate);
       const expectedTimes = ["17:00", "18:00", "19:00", "20:00", "21:00"];
 
-      expect(result.times).toEqual(expectedTimes);
+      expect(result).toEqual(expectedTimes);
+    });
+
+    test("returns a non-empty array of available times", () => {
+      const testDate = new Date("2024-04-09");
+      const result = initializeTimes(testDate);
+
+      expect(Array.isArray(result)).toBe(true);
+      expect(result.length).toBeGreaterThan(0);
     });
   });
 
   describe("updateTimes", () => {
+    beforeEach(() => {
+      jest.clearAllMocks();
+    });
+
     test("returns the same state for unknown action types", () => {
       const initialState = {
-        date: "2024-04-09",
+        date: new Date("2024-04-09"),
         times: ["17:00", "18:00", "19:00", "20:00", "21:00"],
+        selectedTime: "18:00",
       };
 
       const result = updateTimes(initialState, { type: "UNKNOWN" });
@@ -58,18 +78,20 @@ describe("Reducer Functions", () => {
       expect(result).toEqual(initialState);
     });
 
-    test("updates the date and times when UPDATE_TIMES action is dispatched", () => {
+    test("updates the date and times when UPDATE_DATE action is dispatched", () => {
       const initialState = {
-        date: "2024-04-09",
+        date: new Date("2024-04-09"),
         times: ["17:00", "18:00", "19:00", "20:00", "21:00"],
+        selectedTime: "18:00",
       };
 
-      const newDate = "2024-04-10";
+      const newDate = new Date("2024-04-10");
       const result = updateTimes(initialState, {
-        type: "UPDATE_TIMES",
+        type: "UPDATE_DATE",
         payload: newDate,
       });
 
+      expect(global.fetchAPI).toHaveBeenCalledWith(newDate);
       expect(result.date).toBe(newDate);
       expect(result.times).toEqual([
         "17:00",
@@ -82,35 +104,56 @@ describe("Reducer Functions", () => {
 
     test("returns a new state object (not mutating the original)", () => {
       const initialState = {
-        date: "2024-04-09",
+        date: new Date("2024-04-09"),
         times: ["17:00", "18:00", "19:00", "20:00", "21:00"],
+        selectedTime: "18:00",
       };
 
-      const newDate = "2024-04-10";
+      const newDate = new Date("2024-04-10");
       const result = updateTimes(initialState, {
-        type: "UPDATE_TIMES",
+        type: "UPDATE_DATE",
         payload: newDate,
       });
 
       expect(result).not.toBe(initialState);
-      expect(initialState.date).toBe("2024-04-09");
+      expect(initialState.date).toEqual(new Date("2024-04-09"));
       expect(result.date).toBe(newDate);
     });
 
-    test("preserves the same times array structure", () => {
+    test("updates selectedTime when UPDATE_SELECTED_TIME action is dispatched", () => {
       const initialState = {
-        date: "2024-04-09",
+        date: new Date("2024-04-09"),
         times: ["17:00", "18:00", "19:00", "20:00", "21:00"],
+        selectedTime: "17:00",
       };
 
       const result = updateTimes(initialState, {
-        type: "UPDATE_TIMES",
-        payload: "2024-04-15",
+        type: "UPDATE_SELECTED_TIME",
+        payload: "19:00",
       });
 
-      expect(Array.isArray(result.times)).toBe(true);
-      expect(result.times.length).toBe(5);
+      expect(result.selectedTime).toBe("19:00");
+      expect(result.date).toEqual(initialState.date);
       expect(result.times).toEqual(initialState.times);
+    });
+
+    test("includes pre-selected date as part of the dispatch data", () => {
+      const initialState = {
+        date: new Date("2024-04-09"),
+        times: ["17:00", "18:00", "19:00", "20:00", "21:00"],
+        selectedTime: "18:00",
+      };
+
+      const newDate = new Date("2024-04-15");
+      const result = updateTimes(initialState, {
+        type: "UPDATE_DATE",
+        payload: newDate,
+      });
+
+      expect(result.date).toBe(newDate);
+      expect(result).toHaveProperty("date");
+      expect(result).toHaveProperty("times");
+      expect(result).toHaveProperty("selectedTime");
     });
   });
 });

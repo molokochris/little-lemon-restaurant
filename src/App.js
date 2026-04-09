@@ -3,12 +3,14 @@ import "./App.css";
 import BookingPage from "./components/BookingPage";
 import HomePage from "./components/HomePage";
 import Nav from "./components/Nav";
+import ConfirmedBooking from "./components/ConfirmedBooking ";
 
 function App() {
   return (
     <Routes>
       <Route path="/" element={<HomePage />}></Route>
       <Route path="/booking" element={<BookingPage />}></Route>
+      <Route path="/confirmed-booking" element={<ConfirmedBooking />}></Route>
       <Route
         path="/login"
         element={
