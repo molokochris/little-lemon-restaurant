@@ -1,7 +1,8 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Logo from "./Logo";
 
 const Nav = () => {
+  const navigate = useNavigate()
   return (
     <header>
       <Logo />
@@ -19,14 +20,17 @@ const Nav = () => {
           <Link to="/reservations">
             <li>Reservations</li>
           </Link>
-          <Link to="/order-online">
+          {/* <Link to="/order-online">
             <li>Order Online</li>
-          </Link>
-          <Link to="/login">
-            <li>Login</li>
-          </Link>
+          </Link> */}
         </ul>
       </nav>
+      {/* <button
+        className="btn--login"
+        onClick={() => navigate("/login")}>Login</button> */}
+      <button
+        className="btn btn--booking"
+        onClick={() => navigate("/reservations")}>Book a Table</button>
     </header>
   );
 };

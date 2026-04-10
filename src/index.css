@@ -8,7 +8,13 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-h1, h2, h3, h4, h5, h6, .card-title {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.card-title {
   font-family: 'Markazi Text', serif;
   font-weight: 500;
   color: #000000;
@@ -17,4 +23,35 @@ h1, h2, h3, h4, h5, h6, .card-title {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.questrial-regular {
+  font-family: "Questrial", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.bagel-fat-one-regular {
+  font-family: "Bagel Fat One", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.ultra-regular {
+  font-family: "Ultra", serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 6rem;
+}
+
+.gasoek-one-regular {
+  font-family: "Gasoek One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.sigmar-regular {
+  font-family: "Sigmar", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
