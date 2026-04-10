@@ -8,7 +8,7 @@ const CallToAction = () => {
       <article className="hero-text">
         {/* <h1 className="ultra-regular">Little Lemon</h1> */}
         {/* <h2 style={{ color: "rgb(237, 239, 238)" }} className="ultra-regular">Chicago</h2> */}
-        <p style={{ color: "rgb(237, 239, 238)" }} className="ultra-regular">
+        <p style={{ color: "#FEF8E6" }} className="ultra-regular">
           Traditional recipes<span style={{ color: "#f4ce14" }}>,</span> modern twist<span style={{ color: "#f4ce14" }}>.</span>
         </p>
         <br />
@@ -16,10 +16,10 @@ const CallToAction = () => {
           <button
             className="btn btn--booking"
             role="button"
-            aria-label="Reserve a Table"
+            aria-label="Book a Table"
             onClick={() => navigate("/booking")}
             data-discover="true">
-            Reserve a Table
+            Book a Table
           </button>
           {/* <div className="order-btn-container">
             <button className="btn btn--ordering"
@@ -42,13 +42,15 @@ const CallToAction = () => {
             Order Online
           </button>
         </div> */}
-        <OrderCard />
+        <div style={{
+          display: "flex",
+          alignItems: "flex-end",
+          justifyContent: "center",
+          marginBottom: "1.4rem"
+        }}>
+          <OrderCard />
+        </div>
       </div>
-      {/* <div className="hero-image-container"> */}
-      {/* <img alt="A table with a variety of Mediterranean dishes"
-          src={require("../images/restauranfood.jpg")}
-        /> */}
-      {/* </div> */}
     </section >
   );
 };

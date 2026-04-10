@@ -4,28 +4,50 @@ import { useNavigate } from 'react-router-dom';
 const OrderCard = () => {
     const navigate = useNavigate()
     return (
-        <div className="order-card">
-            {/* Floating Bowl Image */}
-            <div className="image-container">
-                <img
-                    src={require("../images/mediterranean_food_bowl-1.png")}
-                    alt="Mediterranean Salad"
-                    className="salad-image"
-                />
-            </div>
+        // <div className="order-card">
+        //     {/* Floating Bowl Image */}
+        //     <div className="image-container">
+        //         <img
+        //             src={require("../images/mediterranean_food_bowl-1.png")}
+        //             alt="Mediterranean Salad"
+        //             className="salad-image"
+        //         />
+        //     </div>
 
-            {/* Card Content */}
-            <div className="card-content">
-                <h3>Organic Meal</h3>
-                <p>Full Protein</p>
+        //     {/* Card Content */}
+        //     <div className="card-content">
+        //         <h3>Organic Meal</h3>
+        //         <p>Full Protein</p>
 
-                <button
-                    className="order-btn"
-                    onClick={() => navigate("/order-online")}
-                    aria-label="Order Online"
-                >
-                    Order Now
-                </button>
+        //         <button
+        //             className="order-btn"
+        //             onClick={() => navigate("/order-online")}
+        //             aria-label="Order Online"
+        //         >
+        //             Order Now
+        //         </button>
+        //     </div>
+        // </div>
+        <div className='order-card'>
+            <img src={require('../images/mediterranean_food_bowl-1.png')}
+                style={{ marginTop: "-4rem", marginRight: "-.1rem", width: "8.2rem" }}
+                className=' salad-image' />
+            <div style={{ padding: "0 1rem" }}>
+                <p style={{
+                    marginBottom: ".6rem",
+                    color: "#2F6656",
+                    fontWeight: "bold",
+                    fontSize: ".8rem"
+                }}>Organic Meal Full Protein</p>
+                <button style={{
+                    backgroundColor: "#2F6656",
+                    border: "none",
+                    padding: ".4rem .8rem",
+                    borderRadius: ".8rem",
+                    color: "#FEF8E6",
+                    fontSize: ".8rem",
+                    fontWeight: "bold"
+                }}>Order Now</button>
             </div>
         </div>
     );
