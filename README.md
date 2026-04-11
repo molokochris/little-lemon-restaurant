@@ -1,6 +1,6 @@
 # Little Lemon Restaurant 🍋
 
-A frontend project built as part of the **Meta Front-End Developer Certificate** (via Umuzi x BBD Learnership). Built with **React**.
+A frontend project built as part of the **Meta Front-End Developer Certificate**. Built with **React**.
 
 > **Important disclaimer before you read the commit history and get confused:**
 > Yes, this UI looks nothing like the course's Little Lemon design. No, it's not a mistake.
