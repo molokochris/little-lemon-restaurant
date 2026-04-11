@@ -104,6 +104,6 @@ Active development is on `ui-update`. The `main` branch holds the original submi
 
 ## Author
 
-**Moloko Chris Poopedi** — [@bigsmok3z](https://github.com/molokochris)
+**Moloko Chris Poopedi** — [molokochris](https://github.com/molokochris)
 
 Meta Front-End Developer Certificate
