@@ -45,11 +45,11 @@ const CallToAction = () => {
         </div> */}
         <div style={{
           display: "flex",
-          alignItems: "flex-end",
+          alignItems: "center",
           justifyContent: "space-between",
           flexDirection: "column",
-          gap: "1rem",
-          marginBottom: "1.4rem"
+          marginBottom: "1.4rem",
+          // backgroundColor: "red"
         }}>
           <NewLocationCard />
           <OrderCard />

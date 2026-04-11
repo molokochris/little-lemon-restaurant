@@ -239,7 +239,7 @@ nav {
   width: 8rem;
   height: fit-content;
   padding-bottom: 1rem;
-  gap: 1rem;
+  /* gap: 1rem; */
   transition: transform 0.3s ease;
   border-radius: 1rem;
 }
