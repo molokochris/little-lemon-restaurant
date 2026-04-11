@@ -1,70 +1,109 @@
-# Getting Started with Create React App
+# Little Lemon Restaurant 🍋
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A frontend project built as part of the **Meta Front-End Developer Certificate** (via Umuzi x BBD Learnership). Built with **React**.
 
-## Available Scripts
+> **Important disclaimer before you read the commit history and get confused:**
+> Yes, this UI looks nothing like the course's Little Lemon design. No, it's not a mistake.
+> Little Lemon opened a new location in New York — they levelled up, got a Michelin star (probably),
+> and the old brand wasn't going to cut it anymore. An executive decision was made. The rebrand
+> happened. You're welcome, Little Lemon.
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## Live Preview
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+[molokochris.github.io/little-lemon-restaurant](https://molokochris.github.io/little-lemon-restaurant/)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## Screenshots
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Homepage
+![Homepage](./screenshots/homepage_top.png)
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## About the Project
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+This started as a standard course project following the Meta Front-End Developer curriculum.
+Somewhere around commit `5ac1e85` ("still not sure about this new UI"), doubt crept in. By
+commit `229bd71` ("new images, new hero, new header and button and css"), the rebrand was in
+full swing.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+The course had guidelines. The guidelines were noted. A different direction was chosen.
 
-### `npm run eject`
+The new design features:
+- A bold serif hero with oversized type
+- A deep forest green palette with cream, orange, and yellow accents
+- Floating cards for the new location announcement and menu highlights
+- A pulsating "New Location" card (because subtlety is overrated)
+- A chef photo layered behind the headline text
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+This is a **living project** — the UI will keep improving as the skills behind it do.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+---
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Tech Stack
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- React
+- CSS3
+- JavaScript (ES6+)
 
-## Learn More
+---
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Getting Started
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```bash
+# Clone the repo
+git clone https://github.com/molokochris/little-lemon-restaurant.git
 
-### Code Splitting
+# Install dependencies
+npm install
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+# Run locally
+npm start
 
-### Analyzing the Bundle Size
+# Build for production
+npm run build
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+---
 
-### Making a Progressive Web App
+## Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+This project is deployed via GitHub Pages from the `ui-update` branch.
+The `main` branch holds the original course build — a simpler, guideline-compliant version
+that served its purpose and was retired with respect (mostly).
 
-### Advanced Configuration
+To deploy the latest build:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+```bash
+npm run build
+npx gh-pages -d build -b gh-pages
+```
 
-### Deployment
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## Commit Highlights
 
-### `npm run build` fails to minify
+| Date | What happened |
+|------|--------------|
+| Apr 9 | Initial build submitted |
+| Apr 10 | New images, new hero, full CSS rework begins |
+| Apr 11 | Lemon logo added, pulsating location card, card alignment fixes, cleanup |
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+*(Some commits are labelled "..." and "other changes I forgot about" — the code knows what it did.)*
+
+---
+
+## Branch
+
+Active development is on `ui-update`. The `main` branch holds the original submitted build.
+
+---
+
+## Author
+
+**Moloko Chris Poopedi** — [@bigsmok3z](https://github.com/molokochris)
+
+Meta Front-End Developer Certificate
