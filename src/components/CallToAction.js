@@ -1,5 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import OrderCard from "./OrderCard";
+import NewLocationCard from "./NewLocationCard";
 
 const CallToAction = () => {
   const navigate = useNavigate()
@@ -45,9 +46,12 @@ const CallToAction = () => {
         <div style={{
           display: "flex",
           alignItems: "flex-end",
-          justifyContent: "center",
+          justifyContent: "space-between",
+          flexDirection: "column",
+          gap: "1rem",
           marginBottom: "1.4rem"
         }}>
+          <NewLocationCard />
           <OrderCard />
         </div>
       </div>

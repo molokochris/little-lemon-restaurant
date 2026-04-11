@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
 const Logo = () => {
-  const logo = "./logo-white.svg";
+  const logo = "../logo_white.svg";
   return (
     <Link to="/">
       <img src={logo} alt="Little Lemon Logo" />

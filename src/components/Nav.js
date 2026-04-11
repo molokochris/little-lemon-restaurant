@@ -30,6 +30,7 @@ const Nav = () => {
         onClick={() => navigate("/login")}>Login</button> */}
       <button
         className="btn btn--booking"
+        style={{ fontWeight: "400" }}
         onClick={() => navigate("/reservations")}>Book a Table</button>
     </header>
   );

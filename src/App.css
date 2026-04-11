@@ -102,7 +102,12 @@ code {
 header {
   grid-column: span 12;
   justify-content: space-between;
-  padding: 1rem 4rem
+  padding: .6rem 4rem;
+  border-bottom: 1px solid #006550;
+}
+
+header img {
+  width: 3.4rem;
 }
 
 header,
@@ -260,7 +265,28 @@ nav {
 }
 
 .order-card:hover .salad-image {
-  transform: scale(1.05) translateY(-8px);
+  transform: scale(1.05) translateY(-8px) rotate(120deg);
+}
+
+.new-location-card {
+  background-color: #E55934;
+  width: 10rem;
+  padding: 1rem;
+  border-radius: 1rem;
+  text-align: center;
+  font-size: .8rem;
+  font-weight: bold;
+}
+
+.new-location-card h1 {
+  font-size: 1.22rem;
+  margin-bottom: .5rem;
+}
+
+.new-location-card p {
+  color: #FEF8E6;
+  margin-bottom: .5rem;
+  font-size: .8rem;
 }
 
 /* Card Content */
@@ -725,7 +751,7 @@ header {
   justify-content: space-between;
   /* logo left, nav right */
   align-items: center;
-  padding: 1rem 4rem;
+  /* padding: 1rem 4rem; */
   background-color: #2F6656;
 }
 
