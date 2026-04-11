@@ -102,7 +102,7 @@ code {
 header {
   grid-column: span 12;
   justify-content: space-between;
-  padding: .6rem 4rem;
+  padding: 1rem 4rem;
   border-bottom: 1px solid #006550;
 }
 
