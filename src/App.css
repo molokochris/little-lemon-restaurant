@@ -236,37 +236,30 @@ nav {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  width: 8rem;
-  height: fit-content;
+  width: 100%;
   padding-bottom: 1rem;
-  /* gap: 1rem; */
   transition: transform 0.3s ease;
   border-radius: 1rem;
+  gap: 1rem;
 }
 
 .order-card:hover {
   transform: translateY(-10px);
 }
 
-/* Floating Bowl Container */
-.image-container {
-  /* display: flex;
-  align-items: flex-end;
-  justify-content: center; */
-  background: linear-gradient(to bottom, #1a3c34, #1a3c34);
-}
-
 /* The salad bowl - floating effect */
-.salad-image {
-  width: 210px;
-  height: 210px;
+.dish-image {
+  width: 13rem;
+  height: 13rem;
+  align-self: center;
+  position: relative;
   object-fit: contain;
   filter: drop-shadow(0 15px 25px rgba(0, 0, 0, 0.25));
   transition: transform 0.4s ease;
   z-index: 2;
 }
 
-.order-card:hover .salad-image {
+.order-card:hover .dish-image {
   transform: scale(1.05) translateY(-8px) rotate(120deg);
 }
 
@@ -310,50 +303,23 @@ nav {
   font-size: .8rem;
 }
 
-/* Card Content */
-.card-content {
-  padding: 35px 30px 40px;
-  text-align: center;
-  background-color: #FEF8E6;
-  position: relative;
-  z-index: 1;
-  margin-top: -40px;
-  /* This creates the floating overlap */
-  border-radius: 28px 28px 0 0;
-}
-
-.card-content h3 {
-  font-size: 1.75rem;
-  font-weight: 700;
-  color: #1a3c34;
-  margin: 0 0 6px 0;
-  line-height: 1.1;
-}
-
-.card-content p {
-  font-size: 1.22rem;
-  color: #2c5f52;
-  font-weight: 500;
-  margin: 0 0 32px 0;
-}
-
 /* Button */
 .order-btn {
   width: 100%;
-  background-color: #1a3c34;
   color: #FEF8E6;
   border: none;
-  padding: 16px 20px;
+  padding: .4rem .8rem;
   font-size: .8rem;
   font-weight: 600;
   border-radius: 16px;
   cursor: pointer;
   transition: all 0.3s ease;
+  background-color: #2F6656;
+  border: none;
 }
 
 .order-btn:hover {
   background-color: #2c5f52;
-  transform: translateY(-2px);
 }
 
 .order-btn:active {
@@ -363,60 +329,6 @@ nav {
 .order-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
-}
-
-/* Image Container */
-.card-image {
-  height: 180px;
-  overflow: hidden;
-}
-
-.card-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-/* Card Content */
-.card-content {
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  align-items: center;
-  text-align: center;
-}
-
-.card-content h3 {
-  font-size: 1.25rem;
-  font-weight: 600;
-  margin: 0;
-  color: #333;
-}
-
-.card-content p {
-  font-size: 0.8rem;
-  color: #666;
-  margin: 0;
-}
-
-/* Order Button */
-.order-btn {
-  background-color: #F4CE14;
-  color: #2F6656;
-  border: none;
-  padding: 10px 24px;
-  border-radius: 8px;
-  font-size: 0.8rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background-color 0.2s ease;
-  width: 100%;
-}
-
-.order-btn:hover {
-  background-color: #e6c00e;
 }
 
 #specials {

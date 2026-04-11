@@ -6,8 +6,8 @@ const OrderCard = () => {
     return (
         <div className='order-card'>
             <img src={require('../images/mediterranean_food_bowl-1.png')}
-                style={{ marginTop: "-4rem", marginRight: "-.1rem", width: "8.2rem" }}
-                className=' salad-image' />
+                style={{ marginTop: "-4rem" }}
+                className='dish-image' alt='food in a bowl' />
             <div style={{ padding: "0 1rem" }}>
                 <p style={{
                     marginBottom: ".6rem",
@@ -15,15 +15,7 @@ const OrderCard = () => {
                     fontWeight: "bold",
                     fontSize: ".8rem"
                 }}>Organic Meal Full Protein</p>
-                <button style={{
-                    backgroundColor: "#2F6656",
-                    border: "none",
-                    padding: ".4rem .8rem",
-                    borderRadius: ".8rem",
-                    color: "#FEF8E6",
-                    fontSize: ".8rem",
-                    fontWeight: "bold"
-                }}>Order Now</button>
+                <button className='order-btn'>Order Now</button>
             </div>
         </div>
     );
