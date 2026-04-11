@@ -108,6 +108,8 @@ header {
 
 header img {
   width: 3.4rem;
+  height: auto;
+  object-fit: contain;
 }
 
 header,
@@ -153,9 +155,9 @@ header button {
 
 nav a {
   color: #FEF8E6;
-  transition: color .2s ease;
   font-size: .8rem;
   font-weight: 400;
+
 }
 
 nav a:hover {
