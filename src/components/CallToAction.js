@@ -22,27 +22,11 @@ const CallToAction = () => {
             data-discover="true">
             Book a Table
           </button>
-          {/* <div className="order-btn-container">
-            <button className="btn btn--ordering"
-              role="button"
-              aria-label="Order Online"
-              onClick={() => navigate("/order-online")}>
-              Order Online
-            </button>
-          </div> */}
         </div>
       </article>
       <div className="order-btn-container">
         <img src={require("../images/restaurant_chef_B.png")}
           alt="little lemon chef seasoning food" />
-        {/* <div className="order-card">
-          <button className="btn btn--ordering"
-            role="button"
-            aria-label="Order Online"
-            onClick={() => navigate("/order-online")}>
-            Order Online
-          </button>
-        </div> */}
         <div style={{
           display: "flex",
           alignItems: "center",

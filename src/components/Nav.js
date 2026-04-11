@@ -25,12 +25,9 @@ const Nav = () => {
           </Link> */}
         </ul>
       </nav>
-      {/* <button
-        className="btn--login"
-        onClick={() => navigate("/login")}>Login</button> */}
       <button
-        className="btn btn--booking"
-        style={{ fontWeight: "400" }}
+        className="btn"
+        style={{ fontWeight: "400", padding: ".4rem 1.6rem" }}
         onClick={() => navigate("/reservations")}>Book a Table</button>
     </header>
   );

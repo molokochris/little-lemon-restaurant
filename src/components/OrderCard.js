@@ -14,7 +14,7 @@ const OrderCard = () => {
                     color: "#2F6656",
                     fontWeight: "bold",
                     fontSize: ".8rem"
-                }}>Organic Meal Full Protein</p>
+                }}>Organic Meal<br />Full Protein</p>
                 <button className='order-btn'>Order Now</button>
             </div>
         </div>

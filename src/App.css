@@ -102,6 +102,7 @@ code {
 header {
   grid-column: span 12;
   justify-content: space-between;
+  align-items: center;
   padding: 1rem 4rem;
   border-bottom: 1px solid #006550;
 }
@@ -189,12 +190,6 @@ nav {
   max-width: 100%
 }
 
-.hero-image-container {
-  /* display: flex;
-  justify-content: flex-end; */
-  /* width: 40% */
-}
-
 #hero img {
   max-width: 24rem;
   width: 100%;
@@ -211,7 +206,7 @@ nav {
   gap: 1rem;
 }
 
-.hero-btn-container button {
+.btn--booking {
   background-color: #E6FE82;
   padding: .8rem 1.6rem;
   margin-bottom: 1.4rem;
@@ -220,7 +215,7 @@ nav {
 .order-btn-container {
   display: flex;
   flex-direction: row;
-  gap: 8rem;
+  gap: 6rem;
   align-self: flex-end;
 }
 
@@ -265,7 +260,7 @@ nav {
 
 .new-location-card {
   background-color: #E55934;
-  width: 10rem;
+  /* width: 10rem; */
   padding: 1rem;
   border-radius: 1rem;
   text-align: center;
