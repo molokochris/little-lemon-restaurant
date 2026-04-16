@@ -1,5 +1,5 @@
 /* =============================================
-   RESET
+   RESET & GLOBALS
    ============================================= */
 * {
   margin: 0;
@@ -16,20 +16,10 @@ body {
   background-color: #f9f9f9;
 }
 
-.layout-container {
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: auto 1fr auto;
-  min-height: 100vh;
-  gap: 0;
-  max-width: 1440px;
-  /* ADD THIS */
-  margin: 0 auto;
-  /* ADD THIS — centers it */
-  width: 100%;
-  /* ADD THIS */
-}
 
+/* =============================================
+   TYPOGRAPHY
+   ============================================= */
 h1 {
   color: #f4ce14;
   font-family: Markazi Text, serif;
@@ -65,32 +55,32 @@ h6 {
 p {
   color: #555;
   font-size: 1.1rem;
-  /* line-height: 1.6 */
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, Courier New, monospace
 }
 
-.col-span-12 {
-  grid-column: span 12
+
+/* =============================================
+   UTILITIES & LAYOUT
+   ============================================= */
+.layout-container {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: auto 1fr auto;
+  min-height: 100vh;
+  gap: 0;
+  max-width: 1440px;
+  margin: 0 auto;
+  width: 100%;
 }
 
-.col-span-8 {
-  grid-column: span 8
-}
-
-.col-span-6 {
-  grid-column: span 6
-}
-
-.col-span-4 {
-  grid-column: span 4
-}
-
-.col-span-3 {
-  grid-column: span 3
-}
+.col-span-12 { grid-column: span 12 }
+.col-span-8 { grid-column: span 8 }
+.col-span-6 { grid-column: span 6 }
+.col-span-4 { grid-column: span 4 }
+.col-span-3 { grid-column: span 3 }
 
 .auto-grid {
   display: grid;
@@ -98,6 +88,10 @@ code {
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr))
 }
 
+
+/* =============================================
+   HEADER & NAVIGATION
+   ============================================= */
 header {
   grid-column: span 12;
   display: flex;
@@ -105,7 +99,6 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 1rem 4rem;
-  /* ADD padding back */
   background-color: #2F6656;
   border-bottom: 1px solid #006550;
 }
@@ -129,7 +122,28 @@ ul li {
   text-decoration: none
 }
 
-/* If login */
+nav {
+  padding: .4rem .6rem;
+  background-color: #006550;
+  border-radius: .2rem;
+}
+
+nav a {
+  color: #FEF8E6;
+  font-size: .8rem;
+  font-weight: 400;
+}
+
+nav a:hover {
+  color: #f4ce14;
+  font-weight: 600;
+}
+
+
+/* =============================================
+   BUTTONS
+   ============================================= */
+/* Navigation Login Button */
 header button {
   background-color: #202528;
   color: #FEF8E6;
@@ -146,7 +160,7 @@ header button:hover {
   background-color: #31383d;
 }
 
-/* If book a table */
+/* Base Booking/General Button */
 .btn {
   background-color: #FFF9E7;
   color: #2F6656;
@@ -164,60 +178,7 @@ header button:hover {
   transform: scale(1.02);
 }
 
-nav a {
-  color: #FEF8E6;
-  font-size: .8rem;
-  font-weight: 400;
-
-}
-
-nav a:hover {
-  color: #f4ce14;
-  font-weight: 600;
-}
-
-nav {
-  padding: .4rem .6rem;
-  background-color: #006550;
-  border-radius: .2rem;
-}
-
-#hero {
-  grid-column: span 12;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #2F6656;
-  padding: 2rem 4rem 0 4rem;
-}
-
-.hero-text {
-  flex: 1 1 50%;
-}
-
-.hero-text p {
-  color: #FEF8E6;
-  font-size: clamp(3.5rem, 6.5vw, 6rem);
-  line-height: 1;
-}
-
-#hero img {
-  max-width: 24rem;
-  width: 100%;
-  height: 100%;
-  z-index: 2;
-  margin-left: -18%;
-  align-self: flex-end;
-  margin-top: auto;
-}
-
-.hero-btn-container {
-  display: flex;
-  flex-direction: row;
-  gap: 1rem;
-}
-
+/* Hero Section Booking Button */
 .btn--booking {
   background-color: #E6FE82;
   padding: .8rem 1.6rem;
@@ -228,93 +189,36 @@ nav {
   background-color: #cced51;
 }
 
-.order-btn-container {
-  display: flex;
-  flex-direction: row;
-  gap: clamp(1rem, 5vw, 6rem);
-  align-self: flex-end;
-}
-
-/* =============================================
-   ORDER CARD STYLES
-   ============================================= */
-
-.order-card {
-  background-color: #FEF8E6;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  width: 100%;
-  padding-bottom: 1rem;
-  transition: transform 0.3s ease;
-  border-radius: 1rem;
-  gap: 1rem;
-}
-
-.order-card:hover {
-  transform: translateY(-10px);
-}
-
-/* The salad bowl - floating effect */
-.dish-image {
-  width: 13rem;
-  height: 13rem;
-  align-self: center;
-  position: relative;
-  object-fit: contain;
-  filter: drop-shadow(0 15px 25px rgba(0, 0, 0, 0.25));
-  transition: transform 0.4s ease;
-  z-index: 2;
-}
-
-.order-card:hover .dish-image {
-  transform: scale(1.05) translateY(-8px) rotate(120deg);
-}
-
-.new-location-card {
-  background-color: #E55934;
-  /* width: 10rem; */
-  padding: 1rem;
-  border-radius: 1rem;
-  text-align: center;
+/* Standard Submit Button */
+.button,
+.button--submit {
+  background-color: #f4ce14;
+  border: none;
+  border-radius: 16px;
+  color: #333;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Karla, sans-serif;
   font-size: .8rem;
-  font-weight: bold;
+  font-weight: 600;
+  padding: .75rem 1.5rem;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color .2s ease, transform .2s ease;
+  width: 100%
 }
 
-/* make new location card always pulsate*/
-@keyframes pulse {
-  0% {
-    transform: scale(1);
-  }
-
-  50% {
-    transform: scale(1.05);
-  }
-
-  100% {
-    transform: scale(1);
-  }
+.button {
+  width: auto
 }
 
-.new-location-card {
-  animation: pulse 1s ease-in-out infinite;
+.button--submit:hover,
+.button:hover {
+  background-color: #e0b800;
+  transform: scale(1.02)
 }
 
-.new-location-card h1 {
-  font-size: 1.22rem;
-  margin-bottom: .5rem;
-}
-
-.new-location-card p {
-  color: #FEF8E6;
-  margin-bottom: .5rem;
-  font-size: .8rem;
-}
-
-/* Button */
+/* Order Section Button */
 .order-btn {
   width: 100%;
   color: #FEF8E6;
@@ -336,11 +240,122 @@ nav {
   transform: scale(0.96);
 }
 
-.order-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+
+/* =============================================
+   HERO SECTION (Call to Action)
+   ============================================= */
+#hero {
+  grid-column: span 12;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #2F6656;
+  padding: 2rem 4rem 0 4rem;
 }
 
+.hero-text {
+  flex: 1 1 50%;
+}
+
+.hero-text p {
+  color: #FEF8E6;
+  font-size: clamp(3.5rem, 6.5vw, 6rem);
+  line-height: 1;
+}
+
+.hero-btn-container {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+
+#hero img {
+  max-width: 24rem;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  margin-left: -18%;
+  align-self: flex-end;
+  margin-top: auto;
+}
+
+.order-btn-container {
+  display: flex;
+  flex-direction: row;
+  gap: clamp(1rem, 5vw, 6rem);
+  align-self: flex-end;
+}
+
+
+/* =============================================
+   FLOATING ORDER & LOCATION CARDS
+   ============================================= */
+.order-card {
+  background-color: #FEF8E6;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  padding-bottom: 1rem;
+  transition: transform 0.3s ease;
+  border-radius: 1rem;
+  gap: 1rem;
+}
+
+.order-card:hover {
+  transform: translateY(-10px);
+}
+
+.dish-image {
+  width: 13rem;
+  height: 13rem;
+  align-self: center;
+  position: relative;
+  object-fit: contain;
+  filter: drop-shadow(0 15px 25px rgba(0, 0, 0, 0.25));
+  transition: transform 0.4s ease;
+  z-index: 2;
+}
+
+.order-card:hover .dish-image {
+  transform: scale(1.05) translateY(-8px) rotate(120deg);
+}
+
+.new-location-card {
+  background-color: #E55934;
+  padding: 1rem;
+  border-radius: 1rem;
+  text-align: center;
+  font-size: .8rem;
+  font-weight: bold;
+  animation: pulse 1s ease-in-out infinite;
+}
+
+.new-location-card h1 {
+  font-size: 1.22rem;
+  margin-bottom: .5rem;
+}
+
+.new-location-card p {
+  color: #FEF8E6;
+  margin-bottom: .5rem;
+  font-size: .8rem;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+
+/* =============================================
+   SPECIALS SECTION
+   ============================================= */
 #specials {
   display: flex;
   flex-direction: column;
@@ -395,6 +410,10 @@ nav {
   padding: 1.5rem
 }
 
+
+/* =============================================
+   TESTIMONIALS SECTION
+   ============================================= */
 .testimonials-container {
   align-items: center;
   background-color: #fbdabb;
@@ -422,6 +441,10 @@ nav {
   padding: 1.5rem
 }
 
+
+/* =============================================
+   ABOUT SECTION
+   ============================================= */
 #about {
   grid-gap: 2rem;
   align-items: center;
@@ -473,40 +496,10 @@ nav {
   z-index: 3
 }
 
-footer {
-  align-items: flex-start;
-  background-color: #333;
-  border-top: 4px solid #495e57;
-  color: #edefee;
-  display: flex;
-  flex-direction: row;
-  font-size: .9rem;
-  gap: 2rem;
-  grid-column: span 12;
-  justify-content: space-between;
-  padding: 3rem 4rem
-}
 
-footer h2 {
-  color: #f4ce14;
-  font-size: 1.5rem;
-  margin-bottom: 1rem
-}
-
-footer a {
-  color: #edefee
-}
-
-footer p {
-  color: #ccc;
-  line-height: 1.4
-}
-
-.footer-links {
-  flex-direction: column;
-  gap: .4rem
-}
-
+/* =============================================
+   RESERVATION SECTION & FORMS
+   ============================================= */
 #reservation-section {
   align-items: flex-start;
   display: flex;
@@ -565,48 +558,61 @@ footer p {
   outline: none
 }
 
-.button,
-.button--submit {
-  background-color: #f4ce14;
-  border: none;
-  border-radius: 16px;
-  color: #333;
-  cursor: pointer;
-  display: inline-block;
-  font-family: Karla, sans-serif;
-  font-size: .8rem;
-  font-weight: 600;
-  padding: .75rem 1.5rem;
-  text-align: center;
-  text-decoration: none;
-  transition: background-color .2s ease, transform .2s ease;
-  width: 100%
+
+/* =============================================
+   FOOTER
+   ============================================= */
+footer {
+  align-items: flex-start;
+  background-color: #333;
+  border-top: 4px solid #495e57;
+  color: #edefee;
+  display: flex;
+  flex-direction: row;
+  font-size: .9rem;
+  gap: 2rem;
+  grid-column: span 12;
+  justify-content: space-between;
+  padding: 3rem 4rem
 }
 
-.button {
-  width: auto
+footer h2 {
+  color: #f4ce14;
+  font-size: 1.5rem;
+  margin-bottom: 1rem
 }
 
-.button--submit:hover,
-.button:hover {
-  background-color: #e0b800;
-  transform: scale(1.02)
+footer a {
+  color: #edefee
 }
 
+footer p {
+  color: #ccc;
+  line-height: 1.4
+}
+
+.footer-links {
+  flex-direction: column;
+  gap: .4rem
+}
+
+
+/* =============================================
+   RESPONSIVE (MEDIA QUERIES)
+   ============================================= */
 @media (max-width: 768px) {
-
-  #hero,
-  header {
+  header,
+  #hero {
     flex-direction: column;
     gap: 1rem;
     text-align: center
   }
 
-  #about,
+  header,
   #hero,
   #specials,
   .testimonials-container,
-  header {
+  #about {
     padding: 1rem 1.5rem
   }
 
@@ -637,6 +643,4 @@ footer p {
   .col-span-8 {
     grid-column: span 12
   }
-
 }
-
