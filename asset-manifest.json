@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/little-lemon-restaurant/static/css/main.161a0913.css",
-    "main.js": "/little-lemon-restaurant/static/js/main.a6dd8f36.js",
+    "main.css": "/little-lemon-restaurant/static/css/main.0b5d8527.css",
+    "main.js": "/little-lemon-restaurant/static/js/main.21dc33e3.js",
     "static/js/453.2b7a8a0e.chunk.js": "/little-lemon-restaurant/static/js/453.2b7a8a0e.chunk.js",
     "static/media/bruschetta.svg": "/little-lemon-restaurant/static/media/bruschetta.29ea078fea3d3120ed22402e901b5bbc.svg",
     "static/media/greek salad.jpg": "/little-lemon-restaurant/static/media/greek salad.bed423a1fab5b210e347.jpg",
@@ -10,12 +10,12 @@
     "static/media/mediterranean_food_bowl-1.png": "/little-lemon-restaurant/static/media/mediterranean_food_bowl-1.fec7d8266d32b8931b97.png",
     "static/media/logo_white_yellow.svg": "/little-lemon-restaurant/static/media/logo_white_yellow.470a6a08d8af4f83168fd7988cd8cbe0.svg",
     "index.html": "/little-lemon-restaurant/index.html",
-    "main.161a0913.css.map": "/little-lemon-restaurant/static/css/main.161a0913.css.map",
-    "main.a6dd8f36.js.map": "/little-lemon-restaurant/static/js/main.a6dd8f36.js.map",
+    "main.0b5d8527.css.map": "/little-lemon-restaurant/static/css/main.0b5d8527.css.map",
+    "main.21dc33e3.js.map": "/little-lemon-restaurant/static/js/main.21dc33e3.js.map",
     "453.2b7a8a0e.chunk.js.map": "/little-lemon-restaurant/static/js/453.2b7a8a0e.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.161a0913.css",
-    "static/js/main.a6dd8f36.js"
+    "static/css/main.0b5d8527.css",
+    "static/js/main.21dc33e3.js"
   ]
 }
