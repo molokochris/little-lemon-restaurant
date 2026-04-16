@@ -72,21 +72,6 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, Courier New, monospace
 }
 
-/* * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0
-} */
-
-/* .layout-container {
-  grid-gap: 0;
-  display: grid;
-  gap: 0;
-  grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: auto 1fr auto;
-  min-height: 100vh
-} */
-
 .col-span-12 {
   grid-column: span 12
 }
@@ -108,7 +93,6 @@ code {
 }
 
 .auto-grid {
-  grid-gap: 1rem;
   display: grid;
   gap: 1rem;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr))
@@ -132,14 +116,10 @@ header img {
   object-fit: contain;
 }
 
-header,
 ul {
   align-items: center;
   display: flex;
-  flex-direction: row
-}
-
-ul {
+  flex-direction: row;
   gap: 1.5rem;
   list-style-type: none
 }
@@ -193,28 +173,22 @@ nav {
 
 #hero {
   grid-column: span 12;
-  /* full-width grid item */
   display: flex;
-  /* flex for side-by-side content + image */
   flex-direction: row;
-  /* justify-content: space-between; */
+  justify-content: space-between;
   align-items: center;
-  /* background-color: #495e57; */
   background-color: #2F6656;
   padding: 2rem 4rem 0 4rem;
-  /* height: 90vh; */
 }
 
 .hero-text {
-  max-width: 100%
+  flex: 1 1 50%;
 }
 
 .hero-text p {
   color: #FEF8E6;
-  font-size: clamp(2rem, 4vw, 3.5rem);
-  /* ADD THIS */
-  font-weight: 700;
-  line-height: 1.15;
+  font-size: clamp(3.5rem, 6.5vw, 6rem);
+  line-height: 1;
 }
 
 #hero img {
@@ -242,7 +216,7 @@ nav {
 .order-btn-container {
   display: flex;
   flex-direction: row;
-  gap: 6rem;
+  gap: clamp(1rem, 5vw, 6rem);
   align-self: flex-end;
 }
 
@@ -329,7 +303,6 @@ nav {
 .order-btn {
   width: 100%;
   color: #FEF8E6;
-  border: none;
   padding: .4rem .8rem;
   font-size: .8rem;
   font-weight: 600;
@@ -652,445 +625,3 @@ footer p {
 
 }
 
-/*# sourceMappingURL=main.f52a8387.css.map*/
-
-
-/* =============================================
-   MACRO LAYOUT — CSS Grid (page skeleton)
-   12-column grid, all major sections use it
-   ============================================= */
-/* .layout-container {
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: auto 1fr auto;
-  min-height: 100vh;
-  gap: 0;
-} */
-
-/* Reusable column span utilities */
-.col-span-12 {
-  grid-column: span 12;
-}
-
-.col-span-8 {
-  grid-column: span 8;
-}
-
-.col-span-6 {
-  grid-column: span 6;
-}
-
-.col-span-4 {
-  grid-column: span 4;
-}
-
-.col-span-3 {
-  grid-column: span 3;
-}
-
-/* Auto-responsive card grid (no media queries needed) */
-.auto-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1rem;
-}
-
-/* =============================================
-   HEADER — Grid item + Flex container inside
-   ============================================= */
-header {
-  grid-column: span 12;
-  /* full-width grid item */
-  display: flex;
-  /* flex for internal alignment */
-  flex-direction: row;
-  justify-content: space-between;
-  /* logo left, nav right */
-  align-items: center;
-  /* padding: 1rem 4rem; */
-  background-color: #2F6656;
-}
-
-/* ul {
-  display: flex;
-  flex-direction: row;
-  list-style-type: none;
-  gap: 1rem;
-  align-items: center;
-} */
-
-ul li {
-  text-decoration: none;
-}
-
-a {
-  text-decoration: none;
-  color: black;
-  transition: color 0.2s ease;
-}
-
-a:hover {
-  color: #495e57;
-}
-
-/* =============================================
-   HERO — Grid item + Flex container inside
-   ============================================= */
-
-
-.hero-text {
-  max-width: 50%;
-  /* max-width: 100%; */
-}
-
-.hero-image-container {
-  width: 40%;
-  display: flex;
-  justify-content: flex-end;
-}
-
-/* #hero img {
-  width: 100%;
-  max-width: 22rem;
-  height: auto;
-  border-radius: 1rem;
-  box-shadow: 0 0.5rem 1.25rem rgba(0, 0, 0, 0.2);
-  display: block;
-} */
-
-/* =============================================
-   SPECIALS — Grid item + nested Grid for cards
-   ============================================= */
-#specials {
-  grid-column: span 12;
-  /* full-width grid item */
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  padding: 3rem 4rem;
-}
-
-.specials-header {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-}
-
-/* Replaced flex row with auto-responsive Grid */
-.specials-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
-  gap: 1rem;
-}
-
-.special {
-  display: flex;
-  /* flex for vertical card content */
-  flex-direction: column;
-  gap: 0.5rem;
-  width: 100%;
-  height: auto;
-  border-radius: 1rem;
-  background-color: #EDEFEE;
-  overflow: hidden;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.special:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-.special img {
-  width: 100%;
-  height: 12.5rem;
-  object-fit: cover;
-  display: block;
-}
-
-.special-content {
-  padding: 1.5rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  flex-grow: 1;
-}
-
-/* =============================================
-   TESTIMONIALS — Grid item + Grid for cards
-   ============================================= */
-.testimonials-container {
-  grid-column: span 12;
-  /* full-width grid item */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 3rem 4rem;
-  gap: 2rem;
-  background-color: #FBDABB;
-}
-
-/* Replaced flex row with auto-responsive Grid */
-.testimonials {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
-  gap: 1rem;
-  width: 100%;
-}
-
-.testimonial {
-  display: flex;
-  /* flex for vertical card content */
-  flex-direction: column;
-  gap: 0.5rem;
-  padding: 1.5rem;
-  border-radius: 1rem;
-  background-color: #EDEFEE;
-}
-
-/* =============================================
-   ABOUT — Grid item: text left, images right
-   ============================================= */
-#about {
-  grid-column: span 12;
-  /* full-width grid item */
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  /* 50/50 split: text | images */
-  gap: 2rem;
-  padding: 3rem 4rem;
-  align-items: center;
-}
-
-.about-text {
-  display: flex;
-  /* flex for stacked text content */
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.about-images {
-  position: relative;
-  width: 100%;
-  height: 22rem;
-}
-
-.about-img-1,
-.about-img-2 {
-  position: absolute;
-  width: 16rem;
-  height: 16rem;
-  object-fit: cover;
-  border-radius: 1rem;
-  box-shadow: 0 0.5rem 1.25rem rgba(0, 0, 0, 0.15);
-  transition: transform 0.3s ease, z-index 0s;
-}
-
-.about-img-1 {
-  top: 0;
-  right: 10%;
-  z-index: 2;
-}
-
-.about-img-2 {
-  bottom: 0;
-  left: 10%;
-  z-index: 1;
-}
-
-.about-img-1:hover,
-.about-img-2:hover {
-  transform: scale(1.05);
-  z-index: 3;
-}
-
-/* =============================================
-   FOOTER — Grid item + Flex container inside
-   ============================================= */
-footer {
-  grid-column: span 12;
-  /* full-width grid item */
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: flex-start;
-  padding: 3rem 4rem;
-  gap: 2rem;
-  background-color: #333333;
-  color: #EDEFEE;
-  font-size: 0.9rem;
-  border-top: 4px solid #495e57;
-}
-
-footer h2 {
-  color: #F4CE14;
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
-}
-
-footer a {
-  color: #EDEFEE;
-}
-
-footer p {
-  color: #cccccc;
-  line-height: 1.4;
-}
-
-/* =============================================
-   FOOTER LINKS — vertical list override
-   (global ul is flex-row; footer needs flex-col)
-   ============================================= */
-.footer-links {
-  flex-direction: column;
-  gap: 0.4rem;
-}
-
-/* =============================================
-   RESERVATION SECTION — centered form card
-   ============================================= */
-#reservation-section {
-  grid-column: span 12;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  padding: 3rem 4rem;
-}
-
-/* Card container: constrained width, centered */
-.reservation-card {
-  width: 100%;
-  max-width: 640px;
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-}
-
-.reservation-subtitle {
-  color: #555;
-  font-size: 0.95rem;
-}
-
-/* form-grid: 2 columns on desktop */
-.form-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1.25rem;
-}
-
-/* Full-width field — spans both columns */
-.form-group--full {
-  grid-column: span 2;
-}
-
-/* form-group: label stacked above input (flex column) */
-.form-group {
-  display: flex;
-  flex-direction: column;
-  gap: 0.4rem;
-}
-
-.form-group label {
-  font-size: 0.9rem;
-  font-weight: 600;
-}
-
-.form-group input,
-.form-group select {
-  padding: 0.6rem 0.8rem;
-  border: 1px solid #ccc;
-  border-radius: 16px;
-  font-size: 1rem;
-  width: 100%;
-  font-family: inherit;
-}
-
-.form-group input:focus {
-  outline: none;
-  border-color: #495e57;
-}
-
-/* Submit button */
-.button,
-.button--submit {
-  width: 100%;
-  padding: 0.75rem 1.5rem;
-  background-color: #f4ce14;
-  color: #333333;
-  border: none;
-  border-radius: 16px;
-  font-size: .8rem;
-  font-weight: 600;
-  font-family: 'Karla', sans-serif;
-  cursor: pointer;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  transition: background-color 0.2s ease, transform 0.2s ease;
-}
-
-.button {
-  width: auto;
-}
-
-.button:hover,
-.button--submit:hover {
-  background-color: #e0b800;
-  transform: scale(1.02);
-}
-
-/* =============================================
-   RESPONSIVE — stack everything on mobile
-   ============================================= */
-@media (max-width: 768px) {
-  header {
-    flex-direction: column;
-    gap: 1rem;
-    padding: 1rem 1.5rem;
-    text-align: center;
-  }
-
-  #hero {
-    flex-direction: column;
-    padding: 1rem 1.5rem;
-    gap: 1rem;
-    text-align: center;
-  }
-
-  #specials,
-  .testimonials-container,
-  #about {
-    padding: 1rem 1.5rem;
-  }
-
-  #about {
-    grid-template-columns: 1fr;
-    /* stack text and images */
-  }
-
-  footer {
-    flex-direction: column;
-    padding: 1rem 1.5rem;
-  }
-
-  /* Reservation form: collapse to single column on mobile */
-  #reservation-section {
-    padding: 2rem 1.5rem;
-  }
-
-  .form-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .form-group--full {
-    grid-column: span 1;
-  }
-
-  .col-span-8,
-  .col-span-6,
-  .col-span-4,
-  .col-span-3 {
-    grid-column: span 12;
-  }
-}
