@@ -131,7 +131,6 @@ ul li {
 
 /* If login */
 header button {
-  /* background-color: #FFF9E7; */
   background-color: #202528;
   color: #FEF8E6;
   border: none;
@@ -139,18 +138,30 @@ header button {
   border-radius: .2rem;
   font-size: .8rem;
   font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+header button:hover {
+  background-color: #31383d;
 }
 
 /* If book a table */
 .btn {
   background-color: #FFF9E7;
-  /* background-color: #202528; */
   color: #2F6656;
   border: none;
   padding: .4rem 1.6rem;
   border-radius: .2rem;
   font-size: .8rem;
   font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #f0ead6;
+  transform: scale(1.02);
 }
 
 nav a {
@@ -211,6 +222,10 @@ nav {
   background-color: #E6FE82;
   padding: .8rem 1.6rem;
   margin-bottom: 1.4rem;
+}
+
+.btn--booking:hover {
+  background-color: #cced51;
 }
 
 .order-btn-container {
