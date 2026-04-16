@@ -20,7 +20,7 @@ const Footer = () => {
             <Link to="/menu">Menu</Link>
           </li>
           <li>
-            <Link to="/reservations">Reservations</Link>
+            <Link to="/booking">Reservations</Link>
           </li>
           <li>
             <Link to="/order-online">Order Online</Link>
@@ -33,20 +33,22 @@ const Footer = () => {
       <div>
         <h2>Contact Us</h2>
         <p>123 Main Street, Chicago, IL 60601</p>
-        <p>(123) 456-7890</p>
-        <p>info@littlelemon.com</p>
+        <a href="tel:+27823456789"><p>(27) 823456789</p></a>
+        <a href="mailto:molokochrisp742@gmail.com"><p>
+          admin@littlelemon.com
+        </p></a>
       </div>
       <div>
         <h2>Follow Us</h2>
         <ul className="footer-links">
           <li>
-            <Link to="https://www.facebook.com/littlelemon">Facebook</Link>
+            <a href="https://www.linkedin.com/in/molokochris" target="_blank" rel="noreferrer">LinkedIn</a>
           </li>
           <li>
-            <Link to="https://www.instagram.com/littlelemon">Instagram</Link>
+            <a href="https://www.instagram.com/molokochris" target="_blank" rel="noreferrer">Instagram</a>
           </li>
           <li>
-            <Link to="https://www.twitter.com/littlelemon">Twitter</Link>
+            <a href="https://twitter.com/bigsmok3z" target="_blank" rel="noreferrer">Twitter</a>
           </li>
         </ul>
       </div>
