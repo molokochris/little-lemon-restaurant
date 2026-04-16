@@ -17,7 +17,7 @@ const Nav = () => {
           <Link to="/menu">
             <li>Menu</li>
           </Link>
-          <Link to="/reservations">
+          <Link to="/booking">
             <li>Reservations</li>
           </Link>
           {/* <Link to="/order-online">
@@ -28,7 +28,7 @@ const Nav = () => {
       <button
         className="btn"
         style={{ fontWeight: "400", padding: ".4rem 1.6rem" }}
-        onClick={() => navigate("/reservations")}>Book a Table</button>
+        onClick={() => navigate("/booking")}>Book a Table</button>
     </header>
   );
 };
