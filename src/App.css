@@ -1,5 +1,5 @@
 /* =============================================
-   RESET
+   RESET & GLOBALS
    ============================================= */
 * {
   margin: 0;
@@ -12,9 +12,14 @@ body {
   -moz-osx-font-smoothing: grayscale;
   color: #333;
   font-family: Karla, Arial, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-  margin: 0
+  margin: 0;
+  background-color: #f9f9f9;
 }
 
+
+/* =============================================
+   TYPOGRAPHY
+   ============================================= */
 h1 {
   color: #f4ce14;
   font-family: Markazi Text, serif;
@@ -50,60 +55,51 @@ h6 {
 p {
   color: #555;
   font-size: 1.1rem;
-  /* line-height: 1.6 */
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, Courier New, monospace
 }
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0
-}
 
+/* =============================================
+   UTILITIES & LAYOUT
+   ============================================= */
 .layout-container {
-  grid-gap: 0;
   display: grid;
-  gap: 0;
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: auto 1fr auto;
-  min-height: 100vh
+  min-height: 100vh;
+  gap: 0;
+  max-width: 1440px;
+  margin: 0 auto;
+  width: 100%;
 }
 
-.col-span-12 {
-  grid-column: span 12
-}
-
-.col-span-8 {
-  grid-column: span 8
-}
-
-.col-span-6 {
-  grid-column: span 6
-}
-
-.col-span-4 {
-  grid-column: span 4
-}
-
-.col-span-3 {
-  grid-column: span 3
-}
+.col-span-12 { grid-column: span 12 }
+.col-span-8 { grid-column: span 8 }
+.col-span-6 { grid-column: span 6 }
+.col-span-4 { grid-column: span 4 }
+.col-span-3 { grid-column: span 3 }
 
 .auto-grid {
-  grid-gap: 1rem;
   display: grid;
   gap: 1rem;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr))
 }
 
+
+/* =============================================
+   HEADER & NAVIGATION
+   ============================================= */
 header {
   grid-column: span 12;
+  display: flex;
+  flex-direction: row;
   justify-content: space-between;
   align-items: center;
   padding: 1rem 4rem;
+  background-color: #2F6656;
   border-bottom: 1px solid #006550;
 }
 
@@ -113,14 +109,10 @@ header img {
   object-fit: contain;
 }
 
-header,
 ul {
   align-items: center;
   display: flex;
-  flex-direction: row
-}
-
-ul {
+  flex-direction: row;
   gap: 1.5rem;
   list-style-type: none
 }
@@ -130,35 +122,16 @@ ul li {
   text-decoration: none
 }
 
-/* If login */
-header button {
-  /* background-color: #FFF9E7; */
-  background-color: #202528;
-  color: #FEF8E6;
-  border: none;
-  padding: .4rem 1.6rem;
+nav {
+  padding: .4rem .6rem;
+  background-color: #006550;
   border-radius: .2rem;
-  font-size: .8rem;
-  font-weight: 500;
-}
-
-/* If book a table */
-.btn {
-  background-color: #FFF9E7;
-  /* background-color: #202528; */
-  color: #2F6656;
-  border: none;
-  padding: .4rem 1.6rem;
-  border-radius: .2rem;
-  font-size: .8rem;
-  font-weight: bold;
 }
 
 nav a {
   color: #FEF8E6;
   font-size: .8rem;
   font-weight: 400;
-
 }
 
 nav a:hover {
@@ -166,28 +139,135 @@ nav a:hover {
   font-weight: 600;
 }
 
-nav {
-  padding: .4rem .6rem;
-  background-color: #006550;
+
+/* =============================================
+   BUTTONS
+   ============================================= */
+/* Navigation Login Button */
+header button {
+  background-color: #202528;
+  color: #FEF8E6;
+  border: none;
+  padding: .4rem 1.6rem;
   border-radius: .2rem;
+  font-size: .8rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
+header button:hover {
+  background-color: #31383d;
+}
+
+/* Base Booking/General Button */
+.btn {
+  background-color: #FFF9E7;
+  color: #2F6656;
+  border: none;
+  padding: .4rem 1.6rem;
+  border-radius: .2rem;
+  font-size: .8rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #f0ead6;
+  transform: scale(1.02);
+}
+
+/* Hero Section Booking Button */
+.btn--booking {
+  background-color: #E6FE82;
+  padding: .8rem 1.6rem;
+  margin-bottom: 1.4rem;
+}
+
+.btn--booking:hover {
+  background-color: #cced51;
+}
+
+/* Standard Submit Button */
+.button,
+.button--submit {
+  background-color: #f4ce14;
+  border: none;
+  border-radius: 16px;
+  color: #333;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Karla, sans-serif;
+  font-size: .8rem;
+  font-weight: 600;
+  padding: .75rem 1.5rem;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color .2s ease, transform .2s ease;
+  width: 100%
+}
+
+.button {
+  width: auto
+}
+
+.button--submit:hover,
+.button:hover {
+  background-color: #e0b800;
+  transform: scale(1.02)
+}
+
+/* Order Section Button */
+.order-btn {
+  width: 100%;
+  color: #FEF8E6;
+  padding: .4rem .8rem;
+  font-size: .8rem;
+  font-weight: 600;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background-color: #2F6656;
+  border: none;
+}
+
+.order-btn:hover {
+  background-color: #2c5f52;
+}
+
+.order-btn:active {
+  transform: scale(0.96);
+}
+
+
+/* =============================================
+   HERO SECTION (Call to Action)
+   ============================================= */
 #hero {
   grid-column: span 12;
-  /* full-width grid item */
   display: flex;
-  /* flex for side-by-side content + image */
   flex-direction: row;
-  /* justify-content: space-between; */
+  justify-content: space-between;
   align-items: center;
-  /* background-color: #495e57; */
   background-color: #2F6656;
   padding: 2rem 4rem 0 4rem;
-  /* height: 90vh; */
 }
 
 .hero-text {
-  max-width: 100%
+  flex: 1 1 50%;
+}
+
+.hero-text p {
+  color: #FEF8E6;
+  font-size: clamp(3.5rem, 6.5vw, 6rem);
+  line-height: 1;
+}
+
+.hero-btn-container {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
 }
 
 #hero img {
@@ -200,29 +280,17 @@ nav {
   margin-top: auto;
 }
 
-.hero-btn-container {
-  display: flex;
-  flex-direction: row;
-  gap: 1rem;
-}
-
-.btn--booking {
-  background-color: #E6FE82;
-  padding: .8rem 1.6rem;
-  margin-bottom: 1.4rem;
-}
-
 .order-btn-container {
   display: flex;
   flex-direction: row;
-  gap: 6rem;
+  gap: clamp(1rem, 5vw, 6rem);
   align-self: flex-end;
 }
 
-/* =============================================
-   ORDER CARD STYLES
-   ============================================= */
 
+/* =============================================
+   FLOATING ORDER & LOCATION CARDS
+   ============================================= */
 .order-card {
   background-color: #FEF8E6;
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
@@ -242,7 +310,6 @@ nav {
   transform: translateY(-10px);
 }
 
-/* The salad bowl - floating effect */
 .dish-image {
   width: 13rem;
   height: 13rem;
@@ -260,30 +327,11 @@ nav {
 
 .new-location-card {
   background-color: #E55934;
-  /* width: 10rem; */
   padding: 1rem;
   border-radius: 1rem;
   text-align: center;
   font-size: .8rem;
   font-weight: bold;
-}
-
-/* make new location card always pulsate*/
-@keyframes pulse {
-  0% {
-    transform: scale(1);
-  }
-
-  50% {
-    transform: scale(1.05);
-  }
-
-  100% {
-    transform: scale(1);
-  }
-}
-
-.new-location-card {
   animation: pulse 1s ease-in-out infinite;
 }
 
@@ -298,34 +346,16 @@ nav {
   font-size: .8rem;
 }
 
-/* Button */
-.order-btn {
-  width: 100%;
-  color: #FEF8E6;
-  border: none;
-  padding: .4rem .8rem;
-  font-size: .8rem;
-  font-weight: 600;
-  border-radius: 16px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  background-color: #2F6656;
-  border: none;
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
 }
 
-.order-btn:hover {
-  background-color: #2c5f52;
-}
 
-.order-btn:active {
-  transform: scale(0.96);
-}
-
-.order-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
-}
-
+/* =============================================
+   SPECIALS SECTION
+   ============================================= */
 #specials {
   display: flex;
   flex-direction: column;
@@ -380,6 +410,10 @@ nav {
   padding: 1.5rem
 }
 
+
+/* =============================================
+   TESTIMONIALS SECTION
+   ============================================= */
 .testimonials-container {
   align-items: center;
   background-color: #fbdabb;
@@ -407,6 +441,10 @@ nav {
   padding: 1.5rem
 }
 
+
+/* =============================================
+   ABOUT SECTION
+   ============================================= */
 #about {
   grid-gap: 2rem;
   align-items: center;
@@ -458,40 +496,10 @@ nav {
   z-index: 3
 }
 
-footer {
-  align-items: flex-start;
-  background-color: #333;
-  border-top: 4px solid #495e57;
-  color: #edefee;
-  display: flex;
-  flex-direction: row;
-  font-size: .9rem;
-  gap: 2rem;
-  grid-column: span 12;
-  justify-content: space-between;
-  padding: 3rem 4rem
-}
 
-footer h2 {
-  color: #f4ce14;
-  font-size: 1.5rem;
-  margin-bottom: 1rem
-}
-
-footer a {
-  color: #edefee
-}
-
-footer p {
-  color: #ccc;
-  line-height: 1.4
-}
-
-.footer-links {
-  flex-direction: column;
-  gap: .4rem
-}
-
+/* =============================================
+   RESERVATION SECTION & FORMS
+   ============================================= */
 #reservation-section {
   align-items: flex-start;
   display: flex;
@@ -550,48 +558,61 @@ footer p {
   outline: none
 }
 
-.button,
-.button--submit {
-  background-color: #f4ce14;
-  border: none;
-  border-radius: 16px;
-  color: #333;
-  cursor: pointer;
-  display: inline-block;
-  font-family: Karla, sans-serif;
-  font-size: .8rem;
-  font-weight: 600;
-  padding: .75rem 1.5rem;
-  text-align: center;
-  text-decoration: none;
-  transition: background-color .2s ease, transform .2s ease;
-  width: 100%
+
+/* =============================================
+   FOOTER
+   ============================================= */
+footer {
+  align-items: flex-start;
+  background-color: #333;
+  border-top: 4px solid #495e57;
+  color: #edefee;
+  display: flex;
+  flex-direction: row;
+  font-size: .9rem;
+  gap: 2rem;
+  grid-column: span 12;
+  justify-content: space-between;
+  padding: 3rem 4rem
 }
 
-.button {
-  width: auto
+footer h2 {
+  color: #f4ce14;
+  font-size: 1.5rem;
+  margin-bottom: 1rem
 }
 
-.button--submit:hover,
-.button:hover {
-  background-color: #e0b800;
-  transform: scale(1.02)
+footer a {
+  color: #edefee
 }
 
+footer p {
+  color: #ccc;
+  line-height: 1.4
+}
+
+.footer-links {
+  flex-direction: column;
+  gap: .4rem
+}
+
+
+/* =============================================
+   RESPONSIVE (MEDIA QUERIES)
+   ============================================= */
 @media (max-width: 768px) {
-
-  #hero,
-  header {
+  header,
+  #hero {
     flex-direction: column;
     gap: 1rem;
     text-align: center
   }
 
-  #about,
+  header,
   #hero,
   #specials,
   .testimonials-container,
-  header {
+  #about {
     padding: 1rem 1.5rem
   }
 
@@ -621,448 +642,5 @@ footer p {
   .col-span-6,
   .col-span-8 {
     grid-column: span 12
-  }
-}
-
-/*# sourceMappingURL=main.f52a8387.css.map*/
-
-
-/* =============================================
-   MACRO LAYOUT — CSS Grid (page skeleton)
-   12-column grid, all major sections use it
-   ============================================= */
-.layout-container {
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: auto 1fr auto;
-  min-height: 100vh;
-  gap: 0;
-}
-
-/* Reusable column span utilities */
-.col-span-12 {
-  grid-column: span 12;
-}
-
-.col-span-8 {
-  grid-column: span 8;
-}
-
-.col-span-6 {
-  grid-column: span 6;
-}
-
-.col-span-4 {
-  grid-column: span 4;
-}
-
-.col-span-3 {
-  grid-column: span 3;
-}
-
-/* Auto-responsive card grid (no media queries needed) */
-.auto-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1rem;
-}
-
-/* =============================================
-   HEADER — Grid item + Flex container inside
-   ============================================= */
-header {
-  grid-column: span 12;
-  /* full-width grid item */
-  display: flex;
-  /* flex for internal alignment */
-  flex-direction: row;
-  justify-content: space-between;
-  /* logo left, nav right */
-  align-items: center;
-  /* padding: 1rem 4rem; */
-  background-color: #2F6656;
-}
-
-/* ul {
-  display: flex;
-  flex-direction: row;
-  list-style-type: none;
-  gap: 1rem;
-  align-items: center;
-} */
-
-ul li {
-  text-decoration: none;
-}
-
-a {
-  text-decoration: none;
-  color: black;
-  transition: color 0.2s ease;
-}
-
-a:hover {
-  color: #495e57;
-}
-
-/* =============================================
-   HERO — Grid item + Flex container inside
-   ============================================= */
-
-
-.hero-text {
-  max-width: 50%;
-  /* max-width: 100%; */
-}
-
-.hero-image-container {
-  width: 40%;
-  display: flex;
-  justify-content: flex-end;
-}
-
-/* #hero img {
-  width: 100%;
-  max-width: 22rem;
-  height: auto;
-  border-radius: 1rem;
-  box-shadow: 0 0.5rem 1.25rem rgba(0, 0, 0, 0.2);
-  display: block;
-} */
-
-/* =============================================
-   SPECIALS — Grid item + nested Grid for cards
-   ============================================= */
-#specials {
-  grid-column: span 12;
-  /* full-width grid item */
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  padding: 3rem 4rem;
-}
-
-.specials-header {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-}
-
-/* Replaced flex row with auto-responsive Grid */
-.specials-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
-  gap: 1rem;
-}
-
-.special {
-  display: flex;
-  /* flex for vertical card content */
-  flex-direction: column;
-  gap: 0.5rem;
-  width: 100%;
-  height: auto;
-  border-radius: 1rem;
-  background-color: #EDEFEE;
-  overflow: hidden;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.special:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-.special img {
-  width: 100%;
-  height: 12.5rem;
-  object-fit: cover;
-  display: block;
-}
-
-.special-content {
-  padding: 1.5rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  flex-grow: 1;
-}
-
-/* =============================================
-   TESTIMONIALS — Grid item + Grid for cards
-   ============================================= */
-.testimonials-container {
-  grid-column: span 12;
-  /* full-width grid item */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 3rem 4rem;
-  gap: 2rem;
-  background-color: #FBDABB;
-}
-
-/* Replaced flex row with auto-responsive Grid */
-.testimonials {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
-  gap: 1rem;
-  width: 100%;
-}
-
-.testimonial {
-  display: flex;
-  /* flex for vertical card content */
-  flex-direction: column;
-  gap: 0.5rem;
-  padding: 1.5rem;
-  border-radius: 1rem;
-  background-color: #EDEFEE;
-}
-
-/* =============================================
-   ABOUT — Grid item: text left, images right
-   ============================================= */
-#about {
-  grid-column: span 12;
-  /* full-width grid item */
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  /* 50/50 split: text | images */
-  gap: 2rem;
-  padding: 3rem 4rem;
-  align-items: center;
-}
-
-.about-text {
-  display: flex;
-  /* flex for stacked text content */
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.about-images {
-  position: relative;
-  width: 100%;
-  height: 22rem;
-}
-
-.about-img-1,
-.about-img-2 {
-  position: absolute;
-  width: 16rem;
-  height: 16rem;
-  object-fit: cover;
-  border-radius: 1rem;
-  box-shadow: 0 0.5rem 1.25rem rgba(0, 0, 0, 0.15);
-  transition: transform 0.3s ease, z-index 0s;
-}
-
-.about-img-1 {
-  top: 0;
-  right: 10%;
-  z-index: 2;
-}
-
-.about-img-2 {
-  bottom: 0;
-  left: 10%;
-  z-index: 1;
-}
-
-.about-img-1:hover,
-.about-img-2:hover {
-  transform: scale(1.05);
-  z-index: 3;
-}
-
-/* =============================================
-   FOOTER — Grid item + Flex container inside
-   ============================================= */
-footer {
-  grid-column: span 12;
-  /* full-width grid item */
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: flex-start;
-  padding: 3rem 4rem;
-  gap: 2rem;
-  background-color: #333333;
-  color: #EDEFEE;
-  font-size: 0.9rem;
-  border-top: 4px solid #495e57;
-}
-
-footer h2 {
-  color: #F4CE14;
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
-}
-
-footer a {
-  color: #EDEFEE;
-}
-
-footer p {
-  color: #cccccc;
-  line-height: 1.4;
-}
-
-/* =============================================
-   FOOTER LINKS — vertical list override
-   (global ul is flex-row; footer needs flex-col)
-   ============================================= */
-.footer-links {
-  flex-direction: column;
-  gap: 0.4rem;
-}
-
-/* =============================================
-   RESERVATION SECTION — centered form card
-   ============================================= */
-#reservation-section {
-  grid-column: span 12;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  padding: 3rem 4rem;
-}
-
-/* Card container: constrained width, centered */
-.reservation-card {
-  width: 100%;
-  max-width: 640px;
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-}
-
-.reservation-subtitle {
-  color: #555;
-  font-size: 0.95rem;
-}
-
-/* form-grid: 2 columns on desktop */
-.form-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1.25rem;
-}
-
-/* Full-width field — spans both columns */
-.form-group--full {
-  grid-column: span 2;
-}
-
-/* form-group: label stacked above input (flex column) */
-.form-group {
-  display: flex;
-  flex-direction: column;
-  gap: 0.4rem;
-}
-
-.form-group label {
-  font-size: 0.9rem;
-  font-weight: 600;
-}
-
-.form-group input,
-.form-group select {
-  padding: 0.6rem 0.8rem;
-  border: 1px solid #ccc;
-  border-radius: 16px;
-  font-size: 1rem;
-  width: 100%;
-  font-family: inherit;
-}
-
-.form-group input:focus {
-  outline: none;
-  border-color: #495e57;
-}
-
-/* Submit button */
-.button,
-.button--submit {
-  width: 100%;
-  padding: 0.75rem 1.5rem;
-  background-color: #f4ce14;
-  color: #333333;
-  border: none;
-  border-radius: 16px;
-  font-size: .8rem;
-  font-weight: 600;
-  font-family: 'Karla', sans-serif;
-  cursor: pointer;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  transition: background-color 0.2s ease, transform 0.2s ease;
-}
-
-.button {
-  width: auto;
-}
-
-.button:hover,
-.button--submit:hover {
-  background-color: #e0b800;
-  transform: scale(1.02);
-}
-
-/* =============================================
-   RESPONSIVE — stack everything on mobile
-   ============================================= */
-@media (max-width: 768px) {
-  header {
-    flex-direction: column;
-    gap: 1rem;
-    padding: 1rem 1.5rem;
-    text-align: center;
-  }
-
-  #hero {
-    flex-direction: column;
-    padding: 1rem 1.5rem;
-    gap: 1rem;
-    text-align: center;
-  }
-
-  #specials,
-  .testimonials-container,
-  #about {
-    padding: 1rem 1.5rem;
-  }
-
-  #about {
-    grid-template-columns: 1fr;
-    /* stack text and images */
-  }
-
-  footer {
-    flex-direction: column;
-    padding: 1rem 1.5rem;
-  }
-
-  /* Reservation form: collapse to single column on mobile */
-  #reservation-section {
-    padding: 2rem 1.5rem;
-  }
-
-  .form-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .form-group--full {
-    grid-column: span 1;
-  }
-
-  .col-span-8,
-  .col-span-6,
-  .col-span-4,
-  .col-span-3 {
-    grid-column: span 12;
   }
 }
