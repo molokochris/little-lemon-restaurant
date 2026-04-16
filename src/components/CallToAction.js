@@ -29,11 +29,11 @@ const CallToAction = () => {
           alt="little lemon chef seasoning food" />
         <div style={{
           display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
+          alignItems: "stretch",
+          gap: "5rem",
           flexDirection: "column",
           marginBottom: "1.4rem",
-          // backgroundColor: "red"
+          width: "15rem"
         }}>
           <NewLocationCard />
           <OrderCard />
